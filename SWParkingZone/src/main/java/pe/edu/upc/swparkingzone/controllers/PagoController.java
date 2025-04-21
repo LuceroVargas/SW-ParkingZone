@@ -24,7 +24,7 @@ public class PagoController {
         }).collect(Collectors.toList());
     }
     @PostMapping
-    public void insertar(PagoDTO dto){
+    public void insertar(@RequestBody PagoDTO dto){
         ModelMapper m = new ModelMapper();
         Pago pg= m.map(dto, Pago.class);
         gS.insert(pg);
