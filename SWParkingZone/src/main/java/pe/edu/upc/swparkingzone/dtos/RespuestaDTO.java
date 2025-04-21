@@ -1,7 +1,7 @@
 package pe.edu.upc.swparkingzone.dtos;
 
-import jakarta.persistence.*;
 import pe.edu.upc.swparkingzone.entities.Reclamo;
+
 import java.time.LocalDate;
 
 public class RespuestaDTO {
