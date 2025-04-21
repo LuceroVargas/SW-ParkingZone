@@ -20,8 +20,7 @@ public class Pago {
     @JoinColumn (name= "idSuscpricion")
     private Suscripcion suscripcion;
 
-    public Pago(){
-
+    public Pago() {
     }
 
     public Pago(int idPago, double montoPago, LocalDate fechaPago, String estadoPago, Suscripcion suscripcion) {
@@ -71,5 +70,4 @@ public class Pago {
     public void setSuscripcion(Suscripcion suscripcion) {
         this.suscripcion = suscripcion;
     }
-
 }
