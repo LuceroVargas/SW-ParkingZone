@@ -1,5 +1,7 @@
 package pe.edu.upc.swparkingzone.dtos;
 
+import pe.edu.upc.swparkingzone.entities.Usuario;
+
 public class EmpresaDTO {
 
     private int idEmpresa;
