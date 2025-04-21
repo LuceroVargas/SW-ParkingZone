@@ -17,7 +17,7 @@ public class Pago {
     @Column(name="estadoPago", nullable=false)
     private String estadoPago;
     @ManyToOne
-    @JoinColumn
+    @JoinColumn (name= "idSuscpricion")
     private Suscripcion suscripcion;
 
     public Pago(){
