@@ -14,10 +14,10 @@ public class Pago {
     private double montoPago;
     @Column(name="fechaPago", nullable=false)
     private LocalDate fechaPago;
-    @Column(name="estadoPago", nullable=false)
+    @Column(name="estadoPago", length = 50, nullable=false)
     private String estadoPago;
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name="idSuscripcion")
     private Suscripcion suscripcion;
 
     public Pago(){
@@ -71,5 +71,4 @@ public class Pago {
     public void setSuscripcion(Suscripcion suscripcion) {
         this.suscripcion = suscripcion;
     }
-
 }

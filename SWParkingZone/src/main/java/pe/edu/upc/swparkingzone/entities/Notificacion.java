@@ -7,6 +7,7 @@ import java.time.LocalDate;
 @Entity
 @Table(name ="Notificacion")
 public class Notificacion {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idNotificacion;
@@ -18,19 +19,24 @@ public class Notificacion {
     private LocalDate fechaProgramada;
     @Column(name = "estado", length= 50, nullable = false)
     private String estado;
+
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "idUsuario")
     private Usuario usuario;
+
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "idTipoNotificacion")
     private TipoNotificacion tipoNotificacion;
+
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "idReserva")
     private Reserva reserva;
+
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "idReclamo")
     private Reclamo reclamo;
-    public Notificacion(){
+
+    public Notificacion() {
 
     }
 

@@ -10,30 +10,31 @@ import java.util.List;
 
 @Service
 public class ReservaServiceImplement implements IReservaService {
+
     @Autowired
-    private IReservaRepository vR;
+    private IReservaRepository rR;
     @Override
     public List<Reserva> list() {
-        return vR.findAll();
+        return rR.findAll();
     }
 
     @Override
-    public void insert(Reserva rv) {
-        vR.save(rv);
+    public void insert(Reserva reserva) {
+        rR.save(reserva);
     }
 
     @Override
     public Reserva listId(int id) {
-        return vR.findById(id).orElse(new Reserva());
+        return rR.findById(id).orElse(new Reserva());
     }
 
     @Override
-    public void update(Reserva rv) {
-        vR.save(rv);
+    public void update(Reserva reserva) {
+        rR.save(reserva);
     }
 
     @Override
     public void delete(int id) {
-        vR.deleteById(id);
+        rR.deleteById(id);
     }
 }

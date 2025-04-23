@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name="Empresa")
 public class Empresa {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idEmpresa;
@@ -14,13 +15,14 @@ public class Empresa {
     private String direccionEmpresa;
     @Column(name="tipoEmpresa",length=50,nullable=false)
     private String tipoEmpresa;
+
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "idUsuario")
     private Usuario usuario;
 
-    public Empresa(){
+   public Empresa() {
 
-    }
+   }
 
     public Empresa(int idEmpresa, String nombreEmpresa, String direccionEmpresa, String tipoEmpresa, Usuario usuario) {
         this.idEmpresa = idEmpresa;
