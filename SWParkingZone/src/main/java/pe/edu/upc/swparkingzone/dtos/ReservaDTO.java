@@ -1,7 +1,6 @@
 package pe.edu.upc.swparkingzone.dtos;
 
 import pe.edu.upc.swparkingzone.entities.Estacionamiento;
-import pe.edu.upc.swparkingzone.entities.Recomendacion;
 import pe.edu.upc.swparkingzone.entities.Usuario;
 
 import java.time.LocalDate;
@@ -12,13 +11,11 @@ public class ReservaDTO {
 
     private LocalDate fechaReserva;
 
-    private String estado;
+    private String estadoReserva;
 
     private Usuario usuario;
 
     private Estacionamiento estacionamiento;
-
-    private Recomendacion recomendacion;
 
     public int getIdReserva() {
         return idReserva;
@@ -36,12 +33,12 @@ public class ReservaDTO {
         this.fechaReserva = fechaReserva;
     }
 
-    public String getEstado() {
-        return estado;
+    public String getEstadoReserva() {
+        return estadoReserva;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setEstadoReserva(String estadoReserva) {
+        this.estadoReserva = estadoReserva;
     }
 
     public Usuario getUsuario() {
@@ -59,13 +56,4 @@ public class ReservaDTO {
     public void setEstacionamiento(Estacionamiento estacionamiento) {
         this.estacionamiento = estacionamiento;
     }
-
-    public Recomendacion getRecomendacion() {
-        return recomendacion;
-    }
-
-    public void setRecomendacion(Recomendacion recomendacion) {
-        this.recomendacion = recomendacion;
-    }
 }
-

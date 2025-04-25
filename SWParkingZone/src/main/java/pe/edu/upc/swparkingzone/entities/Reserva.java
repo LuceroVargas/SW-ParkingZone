@@ -7,34 +7,33 @@ import java.time.LocalDate;
 @Entity
 @Table(name="Reserva")
 public class Reserva {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idReserva;
-    @Column(name="fechaReserva", nullable = false)
+    @Column(name="fechaReserva", nullable=false)
     private LocalDate fechaReserva;
-    @Column(name="estado", length = 30, nullable = false)
-    private String estado;
+    @Column(name="estadoReserva", length = 30, nullable=false)
+    private String estadoReserva;
+
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name="idUsuario")
     private Usuario usuario;
+
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name="idEstacionamiento")
     private Estacionamiento estacionamiento;
-    @ManyToOne
-    @JoinColumn
-    private Recomendacion recomendacion;
 
     public Reserva() {
 
     }
 
-    public Reserva(int idReserva, LocalDate fechaReserva, String estado, Usuario usuario, Estacionamiento estacionamiento, Recomendacion recomendacion) {
+    public Reserva(int idReserva, LocalDate fechaReserva, String estadoReserva, Usuario usuario, Estacionamiento estacionamiento) {
         this.idReserva = idReserva;
         this.fechaReserva = fechaReserva;
-        this.estado = estado;
+        this.estadoReserva = estadoReserva;
         this.usuario = usuario;
         this.estacionamiento = estacionamiento;
-        this.recomendacion = recomendacion;
     }
 
     public int getIdReserva() {
@@ -53,12 +52,12 @@ public class Reserva {
         this.fechaReserva = fechaReserva;
     }
 
-    public String getEstado() {
-        return estado;
+    public String getEstadoReserva() {
+        return estadoReserva;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setEstadoReserva(String estadoReserva) {
+        this.estadoReserva = estadoReserva;
     }
 
     public Usuario getUsuario() {
@@ -75,13 +74,5 @@ public class Reserva {
 
     public void setEstacionamiento(Estacionamiento estacionamiento) {
         this.estacionamiento = estacionamiento;
-    }
-
-    public Recomendacion getRecomendacion() {
-        return recomendacion;
-    }
-
-    public void setRecomendacion(Recomendacion recomendacion) {
-        this.recomendacion = recomendacion;
     }
 }

@@ -17,19 +17,23 @@ public class Recomendacion {
     @Column(name="fechaRecomendacion", nullable = false)
     private LocalDate fechaRecomendacion;
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name="idUsuario")
     private Usuario usuario;
+    @ManyToOne
+    @JoinColumn(name="idEstacionamiento")
+    private Estacionamiento estacionamiento;
 
     public Recomendacion() {
 
     }
 
-    public Recomendacion(int idRecomendacion, String comentario, String calificacion, LocalDate fechaRecomendacion, Usuario usuario) {
+    public Recomendacion(int idRecomendacion, String comentario, String calificacion, LocalDate fechaRecomendacion, Usuario usuario, Estacionamiento estacionamiento) {
         this.idRecomendacion = idRecomendacion;
         this.comentario = comentario;
         this.calificacion = calificacion;
         this.fechaRecomendacion = fechaRecomendacion;
         this.usuario = usuario;
+        this.estacionamiento = estacionamiento;
     }
 
     public int getIdRecomendacion() {
@@ -70,5 +74,13 @@ public class Recomendacion {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public Estacionamiento getEstacionamiento() {
+        return estacionamiento;
+    }
+
+    public void setEstacionamiento(Estacionamiento estacionamiento) {
+        this.estacionamiento = estacionamiento;
     }
 }

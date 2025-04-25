@@ -1,6 +1,5 @@
 package pe.edu.upc.swparkingzone.controllers;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,39 +13,40 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/reservas")
 public class ReservaController {
-    @Autowired
-    private IReservaService vS;
 
+    @Autowired
+    private IReservaService rS;
     @GetMapping
-    public List<ReservaDTO> list(){
-        return vS.list().stream().map(a->{
-            ModelMapper modelMapper = new ModelMapper();
-            return modelMapper.map(a, ReservaDTO.class);
+    public List<ReservaDTO> listar(){
+        return rS.list().stream().map( v->{
+            ModelMapper m = new ModelMapper();
+            return m.map(v, ReservaDTO.class);
         }).collect(Collectors.toList());
     }
 
     @PostMapping
     public void insertar(@RequestBody ReservaDTO dto) {
-        ModelMapper modelMapper = new ModelMapper();
-        Reserva reserva = modelMapper.map(dto, Reserva.class);
-        vS.insert(reserva);
+        ModelMapper m = new ModelMapper();
+        Reserva reserva = m.map(dto, Reserva.class);
+        rS.insert(reserva);
     }
+
     @GetMapping("/{id}")
-    public ReservaDTO buscarId(@PathVariable("id") int id){
-        ModelMapper modelMapper = new ModelMapper();
-        ReservaDTO dto = modelMapper.map(vS, ReservaDTO.class);
+    public ReservaDTO buscarId(@PathVariable("id")int id) {
+        ModelMapper m = new ModelMapper();
+        ReservaDTO dto = m.map(rS, ReservaDTO.class);
         return dto;
     }
 
     @PutMapping
     public void modificar(@RequestBody ReservaDTO dto) {
-        ModelMapper modelMapper = new ModelMapper();
-        Reserva rv = modelMapper.map(dto, Reserva.class);
-        vS.update(rv);
+        ModelMapper m = new ModelMapper();
+        Reserva reserva = m.map(dto, Reserva.class);
+        rS.update(reserva);
     }
 
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable("id") int id) {
-        vS.delete(id);
+    public void eliminar(@PathVariable("id")int id) {
+        rS.delete(id);
     }
 }

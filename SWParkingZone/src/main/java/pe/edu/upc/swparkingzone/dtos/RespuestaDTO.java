@@ -3,6 +3,7 @@ package pe.edu.upc.swparkingzone.dtos;
 import pe.edu.upc.swparkingzone.entities.Reclamo;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class RespuestaDTO {
 
@@ -10,7 +11,7 @@ public class RespuestaDTO {
 
     private LocalDate fecha;
 
-    private LocalDate hora;
+    private LocalTime hora;
 
     private Reclamo reclamo;
 
@@ -30,11 +31,11 @@ public class RespuestaDTO {
         this.fecha = fecha;
     }
 
-    public LocalDate getHora() {
+    public LocalTime getHora() {
         return hora;
     }
 
-    public void setHora(LocalDate hora) {
+    public void setHora(LocalTime hora) {
         this.hora = hora;
     }
 

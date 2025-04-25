@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name="Estacionamiento")
 public class Estacionamiento {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idEstacionamiento;
@@ -30,8 +31,9 @@ public class Estacionamiento {
     private double montoTotalDiario;
     @Column(name="empresaMasReservada",nullable = false)
     private boolean empresaMasReservada;
+
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "idEmpresa")
     private Empresa empresa;
 
     public Estacionamiento() {

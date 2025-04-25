@@ -3,24 +3,30 @@ package pe.edu.upc.swparkingzone.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
+
 @Entity
 @Table(name="Respuesta")
 public class Respuesta {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idRespuesta;
     @Column(name="fecha",nullable=false)
     private LocalDate fecha;
     @Column(name="hora",nullable=false)
-    private LocalDate hora;
+    private LocalTime hora;
+
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "idReclamo")
+
     private Reclamo reclamo;
+
     public Respuesta() {
 
     }
 
-    public Respuesta(int idRespuesta, LocalDate fecha, LocalDate hora, Reclamo reclamo) {
+    public Respuesta(int idRespuesta, LocalDate fecha, LocalTime hora, Reclamo reclamo) {
         this.idRespuesta = idRespuesta;
         this.fecha = fecha;
         this.hora = hora;
@@ -43,11 +49,11 @@ public class Respuesta {
         this.fecha = fecha;
     }
 
-    public LocalDate getHora() {
+    public LocalTime getHora() {
         return hora;
     }
 
-    public void setHora(LocalDate hora) {
+    public void setHora(LocalTime hora) {
         this.hora = hora;
     }
 

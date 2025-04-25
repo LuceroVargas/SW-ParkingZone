@@ -15,7 +15,6 @@ public class Reclamo {
     private String titulo;
     @Column(name="descripcion",length=75, nullable=false)
     private String descripcion;
-    @Lob
     @Column(name = "archivo", nullable = false)
     private Boolean archivo;
     @Column(name="fecha",nullable=false)
@@ -25,10 +24,10 @@ public class Reclamo {
     @Column(name="hora",nullable=false)
     private LocalTime hora;
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name="idUsuario")
     private Usuario usuario;
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name="idReserva")
     private Reserva reserva;
 
     public Reclamo() {
