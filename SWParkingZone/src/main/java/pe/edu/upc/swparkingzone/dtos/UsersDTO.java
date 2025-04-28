@@ -1,20 +1,22 @@
 package pe.edu.upc.swparkingzone.dtos;
 
+import pe.edu.upc.swparkingzone.entities.Roles;
 
-import pe.edu.upc.swparkingzone.entities.Rol;
+import java.util.List;
 
+public class UsersDTO {
 
-public class UsuarioDTO {
+    private Long id;
 
-    private int idUsuario;
+    private String username;
 
-    private String nombre;
+    private String password;
+
+    private Boolean enabled;
 
     private String apellido;
 
     private String correo;
-
-    private String contrasenia;
 
     private String telefono;
 
@@ -24,24 +26,40 @@ public class UsuarioDTO {
 
     private double longitud;
 
-    private boolean esNuevo;
+    private Boolean esNuevo;
 
-    private Rol rol;
+    private List<Roles> roles;
 
-    public int getIdUsuario() {
-        return idUsuario;
+    public Long getId() {
+        return id;
     }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getUsername() {
+        return username;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 
     public String getApellido() {
@@ -58,14 +76,6 @@ public class UsuarioDTO {
 
     public void setCorreo(String correo) {
         this.correo = correo;
-    }
-
-    public String getContrasenia() {
-        return contrasenia;
-    }
-
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
     }
 
     public String getTelefono() {
@@ -100,19 +110,19 @@ public class UsuarioDTO {
         this.longitud = longitud;
     }
 
-    public boolean isEsNuevo() {
+    public Boolean getEsNuevo() {
         return esNuevo;
     }
 
-    public void setEsNuevo(boolean esNuevo) {
+    public void setEsNuevo(Boolean esNuevo) {
         this.esNuevo = esNuevo;
     }
 
-    public Rol getRol() {
-        return rol;
+    public List<Roles> getRoles() {
+        return roles;
     }
 
-    public void setRol(Rol rol) {
-        this.rol = rol;
+    public void setRoles(List<Roles> roles) {
+        this.roles = roles;
     }
 }

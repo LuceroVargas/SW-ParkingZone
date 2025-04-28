@@ -2,6 +2,7 @@ package pe.edu.upc.swparkingzone.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.swparkingzone.dtos.EmpresaDTO;
 import pe.edu.upc.swparkingzone.entities.Empresa;
@@ -17,6 +18,7 @@ public class EmpresaController {
     private IEmpresaService eS;
 
     @GetMapping
+    @PreAuthorize("hasAnyAuthority('ADEST')")
     public List<EmpresaDTO> listar(){
 
         return eS.list().stream().map(p->{
@@ -25,12 +27,14 @@ public class EmpresaController {
         }).collect(Collectors.toList());
     }
     @PostMapping
+    @PreAuthorize("hasAnyAuthority('ADEST')")
     public void insertar(@RequestBody EmpresaDTO dto) {
         ModelMapper m = new ModelMapper();
         Empresa e = m.map(dto, Empresa.class);
         eS.insert(e);
     }
     @GetMapping("/{id}")
+    @PreAuthorize("hasAnyAuthority('ADEST')")
     public EmpresaDTO buscarId(@PathVariable("id") int id) {
         ModelMapper m = new ModelMapper();
         EmpresaDTO dto = m.map(eS, EmpresaDTO.class);
@@ -38,6 +42,7 @@ public class EmpresaController {
     }
 
     @PutMapping
+    @PreAuthorize("hasAnyAuthority('ADEST')")
     public void modificar(@RequestBody EmpresaDTO dto) {
         ModelMapper m = new ModelMapper();
         Empresa e = m.map(dto, Empresa.class);
@@ -45,6 +50,7 @@ public class EmpresaController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAnyAuthority('ADEST')")
     public void eliminar(@PathVariable("id") int id) {
         eS.delete(id);
     }

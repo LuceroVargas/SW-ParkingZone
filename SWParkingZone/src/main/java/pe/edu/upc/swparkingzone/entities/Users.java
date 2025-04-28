@@ -2,67 +2,98 @@ package pe.edu.upc.swparkingzone.entities;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+import java.util.List;
+
 @Entity
-@Table(name="Usuario")
-public class Usuario {
+@Table(name="UsersTable")
+public class Users implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idUsuario;
-    @Column(name="nombre", length = 50, nullable = false)
-    private String nombre;
+    private Long id;
+
+    @Column(name="username", nullable=false, length=35)
+    private String username;
+
+    @Column(name="password", nullable=false, length=200)
+    private String password;
+
+    private Boolean enabled;
+    
     @Column(name ="apellido", length = 50, nullable = false)
     private String apellido;
+
     @Column(name ="correo", length = 75, nullable = false)
     private String correo;
-    @Column(name ="contrasenia", length = 50, nullable = false)
-    private String contrasenia;
     @Column(name ="telefono", length = 20, nullable = false)
     private String telefono;
+
     @Column(name = "tipoUsuario", length = 75, nullable = false)
     private String tipoUsuario;
+
     @Column(name ="latitud", nullable = false )
     private double latitud;
+
     @Column(name ="longitud", nullable = false )
     private double longitud;
-    @Column(name ="esNuevo", nullable = false )
-    private boolean esNuevo;
 
-    @ManyToOne
-    @JoinColumn(name="idRol")
-    private Rol rol;
+    @Column(name="esNuevo", nullable=false)
+    private Boolean esNuevo;
 
-    public Usuario(){
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name="user_id")
+    private List<Roles> roles;
+
+    public Users(){
 
     }
 
-    public Usuario(int idUsuario, String nombre, String apellido, String correo, String contrasenia, String telefono, String tipoUsuario, double latitud, double longitud, boolean esNuevo, Rol rol) {
-        this.idUsuario = idUsuario;
-        this.nombre = nombre;
+    public Users(Long id, String username, String password, Boolean enabled, String apellido, String correo, String telefono, String tipoUsuario, double latitud, double longitud, Boolean esNuevo, List<Roles> roles) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.enabled = enabled;
         this.apellido = apellido;
         this.correo = correo;
-        this.contrasenia = contrasenia;
         this.telefono = telefono;
         this.tipoUsuario = tipoUsuario;
         this.latitud = latitud;
         this.longitud = longitud;
         this.esNuevo = esNuevo;
-        this.rol = rol;
+        this.roles = roles;
     }
 
-    public int getIdUsuario() {
-        return idUsuario;
+    public Long getId() {
+        return id;
     }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getUsername() {
+        return username;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 
     public String getApellido() {
@@ -79,14 +110,6 @@ public class Usuario {
 
     public void setCorreo(String correo) {
         this.correo = correo;
-    }
-
-    public String getContrasenia() {
-        return contrasenia;
-    }
-
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
     }
 
     public String getTelefono() {
@@ -121,19 +144,19 @@ public class Usuario {
         this.longitud = longitud;
     }
 
-    public boolean isEsNuevo() {
+    public Boolean getEsNuevo() {
         return esNuevo;
     }
 
-    public void setEsNuevo(boolean esNuevo) {
+    public void setEsNuevo(Boolean esNuevo) {
         this.esNuevo = esNuevo;
     }
 
-    public Rol getRol() {
-        return rol;
+    public List<Roles> getRoles() {
+        return roles;
     }
 
-    public void setRol(Rol rol) {
-        this.rol = rol;
+    public void setRoles(List<Roles> roles) {
+        this.roles = roles;
     }
 }

@@ -1,13 +1,12 @@
 package pe.edu.upc.swparkingzone.dtos;
 
 import pe.edu.upc.swparkingzone.entities.Reserva;
-import pe.edu.upc.swparkingzone.entities.Usuario;
+import pe.edu.upc.swparkingzone.entities.Users;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class ReclamoDTO {
-
 
     private int idReclamo;
 
@@ -23,7 +22,7 @@ public class ReclamoDTO {
 
     private LocalTime hora;
 
-    private Usuario usuario;
+    private Users user;
 
     private Reserva reserva;
 
@@ -83,12 +82,12 @@ public class ReclamoDTO {
         this.hora = hora;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Users getUser() {
+        return user;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUser(Users user) {
+        this.user = user;
     }
 
     public Reserva getReserva() {

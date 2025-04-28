@@ -1,7 +1,6 @@
 package pe.edu.upc.swparkingzone.dtos;
 
-
-import pe.edu.upc.swparkingzone.entities.Usuario;
+import pe.edu.upc.swparkingzone.entities.Users;
 
 import java.time.LocalDate;
 
@@ -21,7 +20,7 @@ public class SuscripcionDTO {
 
     private LocalDate fechaFin;
 
-    private Usuario usuario;
+    private Users users;
 
     public int getIdSuscripcion() {
         return idSuscripcion;
@@ -79,11 +78,11 @@ public class SuscripcionDTO {
         this.fechaFin = fechaFin;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Users getUsers() {
+        return users;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsers(Users users) {
+        this.users = users;
     }
 }

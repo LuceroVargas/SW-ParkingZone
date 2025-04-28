@@ -6,7 +6,6 @@ import pe.edu.upc.swparkingzone.entities.Suscripcion;
 import pe.edu.upc.swparkingzone.repositories.ISuscripcionRepository;
 import pe.edu.upc.swparkingzone.servicesinterfaces.ISuscripcionService;
 
-
 import java.util.List;
 
 @Service

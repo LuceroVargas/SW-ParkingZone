@@ -11,5 +11,6 @@ public interface IPagoService {
     public Pago listId(int id);
     public void update(Pago pg);
     public void delete(int id);
-
+    public List<String[]> listarPagosConUsuarios();
+    public List<String[]> generarReporteMensualPagos();
 }

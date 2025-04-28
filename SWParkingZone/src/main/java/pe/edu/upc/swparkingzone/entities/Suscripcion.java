@@ -23,21 +23,21 @@ public class Suscripcion {
     @Column(name="fechaFin", nullable=false)
     private LocalDate fechaFin;
     @ManyToOne
-    @JoinColumn(name="idUsuario")
-    private Usuario usuario;
+    @JoinColumn(name="user_id", nullable=false)
+    private Users users;
     public Suscripcion() {
 
     }
 
-    public Suscripcion(int idSuscripcion, Usuario usuario, LocalDate fechaFin, LocalDate fechaInicio, double renovada, String tipoPago, String estado, String tipoSuscripcion) {
+    public Suscripcion(int idSuscripcion, String tipoSuscripcion, String estado, String tipoPago, double renovada, LocalDate fechaInicio, LocalDate fechaFin, Users users) {
         this.idSuscripcion = idSuscripcion;
-        this.usuario = usuario;
-        this.fechaFin = fechaFin;
-        this.fechaInicio = fechaInicio;
-        this.renovada = renovada;
-        this.tipoPago = tipoPago;
-        this.estado = estado;
         TipoSuscripcion = tipoSuscripcion;
+        this.estado = estado;
+        this.tipoPago = tipoPago;
+        this.renovada = renovada;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.users = users;
     }
 
     public int getIdSuscripcion() {
@@ -96,11 +96,11 @@ public class Suscripcion {
         this.fechaFin = fechaFin;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Users getUsers() {
+        return users;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsers(Users users) {
+        this.users = users;
     }
 }

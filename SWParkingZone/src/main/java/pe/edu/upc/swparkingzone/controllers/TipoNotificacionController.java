@@ -2,11 +2,11 @@ package pe.edu.upc.swparkingzone.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.swparkingzone.dtos.TipoNotificacionDTO;
 import pe.edu.upc.swparkingzone.entities.TipoNotificacion;
 import pe.edu.upc.swparkingzone.servicesinterfaces.ITipoNotificacionService;
-
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,6 +18,7 @@ public class TipoNotificacionController {
     private ITipoNotificacionService pS;
 
     @GetMapping
+    @PreAuthorize("hasAnyAuthority('ADNF')")
     public List<TipoNotificacionDTO> listar(){
             return pS.list().stream().map(t->{
                 ModelMapper m = new ModelMapper();
@@ -26,6 +27,7 @@ public class TipoNotificacionController {
     }
 
     @PostMapping
+    @PreAuthorize("hasAnyAuthority('ADNF')")
     public void insertar(@RequestBody TipoNotificacionDTO dto){
         ModelMapper m = new ModelMapper();
         TipoNotificacion tp = m.map(dto, TipoNotificacion.class);
@@ -33,6 +35,7 @@ public class TipoNotificacionController {
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAnyAuthority('ADNF')")
     public TipoNotificacionDTO buscarId(@PathVariable ("id")int id){
         ModelMapper m = new ModelMapper();
         TipoNotificacionDTO dto = m.map(pS, TipoNotificacionDTO.class);
@@ -40,6 +43,7 @@ public class TipoNotificacionController {
     }
 
     @PutMapping
+    @PreAuthorize("hasAnyAuthority('ADNF')")
     public void modificar(@RequestBody TipoNotificacionDTO dto){
         ModelMapper m = new ModelMapper();
         TipoNotificacion tp = m.map(dto, TipoNotificacion.class);
@@ -47,10 +51,13 @@ public class TipoNotificacionController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAnyAuthority('ADNF')")
     public void eliminar(@PathVariable("id") int id){
         pS.delete(id);
     }
+
     @GetMapping("/busquedas")
+    @PreAuthorize("hasAnyAuthority('ADNF')")
     public List<TipoNotificacionDTO>buscarDescripcion(@RequestParam(required = false) String Descripcion){
         return pS.buscar(Descripcion).stream().map(i->{
             ModelMapper m = new ModelMapper();

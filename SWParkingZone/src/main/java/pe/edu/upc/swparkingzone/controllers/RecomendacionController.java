@@ -2,6 +2,7 @@ package pe.edu.upc.swparkingzone.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.swparkingzone.dtos.RecomendacionDTO;
 import pe.edu.upc.swparkingzone.entities.Recomendacion;
@@ -17,6 +18,7 @@ public class RecomendacionController {
     private IRecomendacionService cS;
 
     @GetMapping
+    @PreAuthorize("hasAnyAuthority('ADM','ADEST')")
     public List<Recomendacion> list(){
         return cS.list().stream().map(o->{
             ModelMapper m = new ModelMapper();
@@ -25,6 +27,7 @@ public class RecomendacionController {
     }
 
     @PostMapping
+    @PreAuthorize("hasAnyAuthority('ADM','ADEST')")
     public void insertar(@RequestBody RecomendacionDTO dto){
         ModelMapper m = new ModelMapper();
         Recomendacion rr = m.map(dto, Recomendacion.class);
@@ -33,12 +36,14 @@ public class RecomendacionController {
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAnyAuthority('ADM','ADEST')")
     public RecomendacionDTO buscarId(@PathVariable("id") int id){
         ModelMapper m = new ModelMapper();
         RecomendacionDTO dto = m.map(cS, RecomendacionDTO.class);
         return dto;
     }
     @PutMapping
+    @PreAuthorize("hasAnyAuthority('ADM','ADEST')")
     public void modificar(@RequestBody RecomendacionDTO dto){
         ModelMapper m = new ModelMapper();
         Recomendacion rr = m.map(dto, Recomendacion.class);
@@ -46,6 +51,7 @@ public class RecomendacionController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAnyAuthority('ADM','ADEST')")
     public void eliminar(@PathVariable("id") int id){
         cS.delete(id);
     }

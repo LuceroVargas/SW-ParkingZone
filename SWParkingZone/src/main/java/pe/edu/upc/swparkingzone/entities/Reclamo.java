@@ -24,8 +24,8 @@ public class Reclamo {
     @Column(name="hora",nullable=false)
     private LocalTime hora;
     @ManyToOne
-    @JoinColumn(name="idUsuario")
-    private Usuario usuario;
+    @JoinColumn(name="user_id")
+    private Users user;
     @ManyToOne
     @JoinColumn(name="idReserva")
     private Reserva reserva;
@@ -34,7 +34,7 @@ public class Reclamo {
 
     }
 
-    public Reclamo(int idReclamo, String titulo, String descripcion, Boolean archivo, LocalDate fecha, String estado, LocalTime hora, Usuario usuario, Reserva reserva) {
+    public Reclamo(int idReclamo, String titulo, String descripcion, Boolean archivo, LocalDate fecha, String estado, LocalTime hora, Users user, Reserva reserva) {
         this.idReclamo = idReclamo;
         this.titulo = titulo;
         this.descripcion = descripcion;
@@ -42,7 +42,7 @@ public class Reclamo {
         this.fecha = fecha;
         this.estado = estado;
         this.hora = hora;
-        this.usuario = usuario;
+        this.user = user;
         this.reserva = reserva;
     }
 
@@ -102,12 +102,12 @@ public class Reclamo {
         this.hora = hora;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Users getUser() {
+        return user;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUser(Users user) {
+        this.user = user;
     }
 
     public Reserva getReserva() {

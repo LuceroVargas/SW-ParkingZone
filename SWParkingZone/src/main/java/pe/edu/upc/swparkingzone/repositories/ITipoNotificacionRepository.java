@@ -6,7 +6,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import pe.edu.upc.swparkingzone.entities.TipoNotificacion;
 
-
 import java.util.List;
 
 @Repository

@@ -2,10 +2,12 @@ package pe.edu.upc.swparkingzone.servicesimplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pe.edu.upc.swparkingzone.dtos.EstacionamientoEmpresaDTO;
 import pe.edu.upc.swparkingzone.entities.Estacionamiento;
 import pe.edu.upc.swparkingzone.repositories.IEstacionamientoRepository;
 import pe.edu.upc.swparkingzone.servicesinterfaces.IEstacionamientoService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -38,4 +40,24 @@ public class EstacionamientoSeviceImplement implements IEstacionamientoService {
     public void delete(int id) {
         uR.deleteById(id);
     }
+
+    @Override
+    public List<EstacionamientoEmpresaDTO> listarEstacionamientosConCantidadPorEmpresa() {
+        List<Object[]> resultados = uR.listarEstacionamientosConCantidadPorEmpresa();
+        List<EstacionamientoEmpresaDTO> listaDTO = new ArrayList<>();
+
+        for (Object[] fila : resultados) {
+            EstacionamientoEmpresaDTO dto = new EstacionamientoEmpresaDTO(
+                    (String) fila[0],
+                    (String) fila[1],
+                    (String) fila[2],
+                    ((Number) fila[3]).doubleValue(),
+                    ((Number) fila[4]).intValue()
+            );
+            listaDTO.add(dto);
+        }
+
+        return listaDTO;
+    }
 }
+

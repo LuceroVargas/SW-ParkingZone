@@ -21,8 +21,8 @@ public class Notificacion {
     private String estado;
 
     @ManyToOne
-    @JoinColumn(name = "idUsuario")
-    private Usuario usuario;
+    @JoinColumn(name = "user_id", nullable = false)
+    private Users user;
 
     @ManyToOne
     @JoinColumn(name = "idTipoNotificacion")
@@ -40,13 +40,13 @@ public class Notificacion {
 
     }
 
-    public Notificacion(int idNotificacion, String mensaje, LocalDate fechaEmision, LocalDate fechaProgramada, String estado, Usuario usuario, TipoNotificacion tipoNotificacion, Reserva reserva, Reclamo reclamo) {
+    public Notificacion(int idNotificacion, String mensaje, LocalDate fechaEmision, LocalDate fechaProgramada, String estado, Users user, TipoNotificacion tipoNotificacion, Reserva reserva, Reclamo reclamo) {
         this.idNotificacion = idNotificacion;
         this.mensaje = mensaje;
         this.fechaEmision = fechaEmision;
         this.fechaProgramada = fechaProgramada;
         this.estado = estado;
-        this.usuario = usuario;
+        this.user = user;
         this.tipoNotificacion = tipoNotificacion;
         this.reserva = reserva;
         this.reclamo = reclamo;
@@ -92,12 +92,12 @@ public class Notificacion {
         this.estado = estado;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Users getUser() {
+        return user;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUser(Users user) {
+        this.user = user;
     }
 
     public TipoNotificacion getTipoNotificacion() {

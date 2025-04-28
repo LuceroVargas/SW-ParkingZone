@@ -1,8 +1,7 @@
 package pe.edu.upc.swparkingzone.dtos;
 
-
 import pe.edu.upc.swparkingzone.entities.Estacionamiento;
-import pe.edu.upc.swparkingzone.entities.Usuario;
+import pe.edu.upc.swparkingzone.entities.Users;
 
 import java.time.LocalDate;
 
@@ -16,7 +15,7 @@ public class RecomendacionDTO {
 
     private LocalDate fechaRecomendacion;
 
-    private Usuario usuario;
+    private Users user;
 
     private Estacionamiento estacionamiento;
 
@@ -52,12 +51,12 @@ public class RecomendacionDTO {
         this.fechaRecomendacion = fechaRecomendacion;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Users getUser() {
+        return user;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUser(Users user) {
+        this.user = user;
     }
 
     public Estacionamiento getEstacionamiento() {

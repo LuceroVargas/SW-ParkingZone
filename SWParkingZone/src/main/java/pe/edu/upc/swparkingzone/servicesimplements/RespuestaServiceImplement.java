@@ -37,4 +37,10 @@ public class RespuestaServiceImplement implements IRespuestaService {
     public void delete(int id) {
         eR.deleteById(id);
     }
+
+    @Override
+    public List<String[]> listarRespuestasReclamos() {
+        return eR.listarRespuestasReclamos();
+    }
+
 }

@@ -17,19 +17,19 @@ public class Empresa {
     private String tipoEmpresa;
 
     @ManyToOne
-    @JoinColumn(name = "idUsuario")
-    private Usuario usuario;
+    @JoinColumn(name = "user_id", nullable = false)
+    private Users user;
 
    public Empresa() {
 
    }
 
-    public Empresa(int idEmpresa, String nombreEmpresa, String direccionEmpresa, String tipoEmpresa, Usuario usuario) {
+    public Empresa(int idEmpresa, String nombreEmpresa, String direccionEmpresa, String tipoEmpresa, Users user) {
         this.idEmpresa = idEmpresa;
         this.nombreEmpresa = nombreEmpresa;
         this.direccionEmpresa = direccionEmpresa;
         this.tipoEmpresa = tipoEmpresa;
-        this.usuario = usuario;
+        this.user = user;
     }
 
     public int getIdEmpresa() {
@@ -64,11 +64,11 @@ public class Empresa {
         this.tipoEmpresa = tipoEmpresa;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Users getUser() {
+        return user;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUser(Users user) {
+        this.user = user;
     }
 }

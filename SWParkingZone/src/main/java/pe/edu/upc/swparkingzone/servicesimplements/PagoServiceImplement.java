@@ -6,7 +6,6 @@ import pe.edu.upc.swparkingzone.entities.Pago;
 import pe.edu.upc.swparkingzone.repositories.IPagoRepository;
 import pe.edu.upc.swparkingzone.servicesinterfaces.IPagoService;
 
-
 import java.util.List;
 
 @Service
@@ -36,5 +35,15 @@ public class PagoServiceImplement implements IPagoService {
     @Override
     public void delete(int id) {
         gR.deleteById(id);
+    }
+
+    @Override
+    public List<String[]> listarPagosConUsuarios() {
+        return gR.listarPagosConUsuarios();
+    }
+
+    @Override
+    public List<String[]> generarReporteMensualPagos() {
+        return gR.generarReporteMensualPagos();
     }
 }

@@ -3,7 +3,7 @@ package pe.edu.upc.swparkingzone.dtos;
 import pe.edu.upc.swparkingzone.entities.Reclamo;
 import pe.edu.upc.swparkingzone.entities.Reserva;
 import pe.edu.upc.swparkingzone.entities.TipoNotificacion;
-import pe.edu.upc.swparkingzone.entities.Usuario;
+import pe.edu.upc.swparkingzone.entities.Users;
 
 import java.time.LocalDate;
 
@@ -19,7 +19,7 @@ public class NotificacionDTO {
 
     private String estado;
 
-    private Usuario usuario;
+    private Users user;
 
     private TipoNotificacion tipoNotificacion;
 
@@ -67,12 +67,12 @@ public class NotificacionDTO {
         this.estado = estado;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Users getUser() {
+        return user;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUser(Users user) {
+        this.user = user;
     }
 
     public TipoNotificacion getTipoNotificacion() {

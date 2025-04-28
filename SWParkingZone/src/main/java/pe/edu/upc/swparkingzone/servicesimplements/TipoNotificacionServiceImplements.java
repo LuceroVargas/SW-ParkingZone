@@ -6,7 +6,6 @@ import pe.edu.upc.swparkingzone.entities.TipoNotificacion;
 import pe.edu.upc.swparkingzone.repositories.ITipoNotificacionRepository;
 import pe.edu.upc.swparkingzone.servicesinterfaces.ITipoNotificacionService;
 
-
 import java.util.List;
 
 @Service
