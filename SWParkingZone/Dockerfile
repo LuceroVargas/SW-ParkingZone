@@ -10,7 +10,7 @@ WORKDIR /app
 COPY --from=build /app/target/SWParkingZone-0.0.1-SNAPSHOT.jar app.jar
 
 # Exponer el puerto que usará la app (Render usa el puerto definido por $PORT)
-EXPOSE 8080
+EXPOSE 8087
 
 # Comando para ejecutar la app
 CMD ["java", "-jar", "app.jar"]
