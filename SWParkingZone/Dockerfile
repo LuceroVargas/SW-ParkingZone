@@ -1,7 +1,7 @@
 # Etapa 1: construir la aplicación
 FROM maven:3.9.6-eclipse-temurin-17 AS build
 WORKDIR /app
-COPY . .
+COPY SWParkingZone/ .
 RUN mvn clean package -DskipTests
 
 # Etapa 2: imagen final
