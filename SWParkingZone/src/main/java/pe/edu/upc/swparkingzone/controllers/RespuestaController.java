@@ -7,11 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.swparkingzone.dtos.RespuestaDTO;
-import pe.edu.upc.swparkingzone.dtos.RespuestasxReclamoDTO;
 import pe.edu.upc.swparkingzone.entities.Respuesta;
 import pe.edu.upc.swparkingzone.servicesinterfaces.IRespuestaService;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -66,34 +64,4 @@ public class RespuestaController {
         eS.delete(id);
     }
 
-    /*@GetMapping("/respuestasreclamos")
-    @PreAuthorize("hasAnyAuthority('ADRCL')")
-    public List<RespuestaReclamoDTO> respuestasReclamos(){
-        List<String[]> fila = eS.listarRespuestasReclamos();
-        List<RespuestaReclamoDTO> dtoLista = new ArrayList<>();
-
-        for(String[] columna : fila){
-            RespuestaReclamoDTO dto = new RespuestaReclamoDTO();
-            dto.setTitulo(columna[0]);
-            dto.setFecha(LocalDate.parse(columna[1]));
-            dto.setHora(LocalTime.parse(columna[2]));
-        }
-        return dtoLista;
-    }*/
-
-    @GetMapping("/cantidadrespuestas-reclamos")
-    @PreAuthorize("hasAnyAuthority('ADRCL')")
-    public List<RespuestasxReclamoDTO> cantidadRespuestasReclamos(){
-        logger.info("Generando la cantidad de respuesta emitidas por reclamo y usuario");
-        List<String[]> fila = eS.obtenerResumenRespuestasPorReclamoYUsuario();
-        List<RespuestasxReclamoDTO> dtoLista = new ArrayList<>();
-
-        for(String[] columna : fila){
-            RespuestasxReclamoDTO dto = new RespuestasxReclamoDTO();
-            dto.setTitulo_reclamo(columna[0]);
-            dto.setUsername(columna[1]);
-            dto.setCantidadRespuestas(Integer.parseInt(columna[2]));
-        }
-        return dtoLista;
-    }
 }

@@ -39,14 +39,4 @@ public class RespuestaServiceImplement implements IRespuestaService {
         eR.deleteById(id);
     }
 
-    /* @Override
-    public List<String[]> listarRespuestasReclamos() {
-        return eR.listarRespuestasReclamos();
-    }*/
-
-    @Override
-    public List<String[]> obtenerResumenRespuestasPorReclamoYUsuario() {
-        return eR.obtenerResumenRespuestasPorReclamoYUsuario();
-    }
-
 }
