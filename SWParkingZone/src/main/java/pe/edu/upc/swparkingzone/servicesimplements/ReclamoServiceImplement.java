@@ -38,13 +38,4 @@ public class ReclamoServiceImplement implements IReclamoService {
         mR.deleteById(id);
     }
 
-    @Override
-    public List<String[]> ReporteReclamosUsuario() {
-        return mR.ReporteReclamosUsuario();
-    }
-
-    /*@Override
-    public List<String[]> listarReclamosUsuarios() {
-        return mR.listarReclamosUsuarios();
-    }*/
 }

@@ -10,6 +10,4 @@ public interface IReclamoService {
     public Reclamo listId(int id);
     public void update(Reclamo rm);
     public void delete(int id);
-    public List<String[]>ReporteReclamosUsuario();
-    /*public List<String[]> listarReclamosUsuarios();*/
 }
