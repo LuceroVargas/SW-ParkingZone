@@ -37,5 +37,4 @@ public class ReclamoServiceImplement implements IReclamoService {
     public void delete(int id) {
         mR.deleteById(id);
     }
-
 }

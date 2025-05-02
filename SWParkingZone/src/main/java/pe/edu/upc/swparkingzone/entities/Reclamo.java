@@ -24,17 +24,13 @@ public class Reclamo {
     @Column(name="hora",nullable=false)
     private LocalTime hora;
     @ManyToOne
-    @JoinColumn(name = "id_usuario")
-    private Usuario us;
     @ManyToOne
-    @JoinColumn(name="idReserva")
     private Reserva reserva;
 
     public Reclamo() {
 
     }
 
-    public Reclamo(int idReclamo, String titulo, String descripcion, Boolean archivo, LocalDate fecha, String estado, LocalTime hora, Usuario us, Reserva reserva) {
         this.idReclamo = idReclamo;
         this.titulo = titulo;
         this.descripcion = descripcion;
@@ -42,7 +38,6 @@ public class Reclamo {
         this.fecha = fecha;
         this.estado = estado;
         this.hora = hora;
-        this.us = us;
         this.reserva = reserva;
     }
 
@@ -102,12 +97,8 @@ public class Reclamo {
         this.hora = hora;
     }
 
-    public Usuario getUs() {
-        return us;
     }
 
-    public void setUs(Usuario us) {
-        this.us = us;
     }
 
     public Reserva getReserva() {

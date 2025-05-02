@@ -22,7 +22,6 @@ public class ReclamoDTO {
 
     private LocalTime hora;
 
-    private Usuario us;
 
     private Reserva reserva;
 
@@ -82,12 +81,8 @@ public class ReclamoDTO {
         this.hora = hora;
     }
 
-    public Usuario getUs() {
-        return us;
     }
 
-    public void setUs(Usuario us) {
-        this.us = us;
     }
 
     public Reserva getReserva() {
