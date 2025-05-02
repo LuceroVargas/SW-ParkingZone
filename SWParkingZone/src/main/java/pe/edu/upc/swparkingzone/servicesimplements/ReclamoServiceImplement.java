@@ -1,0 +1,50 @@
+package pe.edu.upc.swparkingzone.servicesimplements;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import pe.edu.upc.swparkingzn.entities.Reclamo;
+import pe.edu.upc.swparkingzn.repositories.IReclamoRepository;
+import pe.edu.upc.swparkingzn.servicesinterfaces.IReclamoService;
+
+import java.util.List;
+
+@Service
+public class ReclamoServiceImplement implements IReclamoService {
+    @Autowired
+    private IReclamoRepository mR;
+
+    @Override
+    public List<Reclamo> list() {
+        return mR.findAll();
+    }
+
+    @Override
+    public void insert(Reclamo rm) {
+        mR.save(rm);
+    }
+
+    @Override
+    public Reclamo listId(int id) {
+        return mR.findById(id).orElse(new Reclamo());
+    }
+
+    @Override
+    public void update(Reclamo rm) {
+        mR.save(rm);
+    }
+
+    @Override
+    public void delete(int id) {
+        mR.deleteById(id);
+    }
+
+    @Override
+    public List<String[]> ReporteReclamosUsuario() {
+        return mR.ReporteReclamosUsuario();
+    }
+
+    /*@Override
+    public List<String[]> listarReclamosUsuarios() {
+        return mR.listarReclamosUsuarios();
+    }*/
+}

@@ -1,16 +1,17 @@
 package pe.edu.upc.swparkingzone.dtos;
 
-import jakarta.persistence.*;
-import pe.edu.upc.swparkingzone.entities.Reclamo;
+import pe.edu.upc.swparkingzn.entities.Reclamo;
+
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class RespuestaDTO {
 
     private int idRespuesta;
 
-    private LocalDate fecha;
+    private LocalDate fechaRespuesta;
 
-    private LocalDate hora;
+    private LocalTime horaRespuesta;
 
     private Reclamo reclamo;
 
@@ -22,20 +23,20 @@ public class RespuestaDTO {
         this.idRespuesta = idRespuesta;
     }
 
-    public LocalDate getFecha() {
-        return fecha;
+    public LocalDate getFechaRespuesta() {
+        return fechaRespuesta;
     }
 
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
+    public void setFechaRespuesta(LocalDate fechaRespuesta) {
+        this.fechaRespuesta = fechaRespuesta;
     }
 
-    public LocalDate getHora() {
-        return hora;
+    public LocalTime getHoraRespuesta() {
+        return horaRespuesta;
     }
 
-    public void setHora(LocalDate hora) {
-        this.hora = hora;
+    public void setHoraRespuesta(LocalTime horaRespuesta) {
+        this.horaRespuesta = horaRespuesta;
     }
 
     public Reclamo getReclamo() {

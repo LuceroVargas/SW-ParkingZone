@@ -2,11 +2,12 @@ package pe.edu.upc.swparkingzone.servicesimplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pe.edu.upc.swparkingzone.entities.Respuesta;
-import pe.edu.upc.swparkingzone.repositories.IRespuestaRepository;
-import pe.edu.upc.swparkingzone.servicesinterfaces.IRespuestaService;
+import pe.edu.upc.swparkingzn.entities.Respuesta;
+import pe.edu.upc.swparkingzn.repositories.IRespuestaRepository;
+import pe.edu.upc.swparkingzn.servicesinterfaces.IRespuestaService;
 
 import java.util.List;
+
 @Service
 public class RespuestaServiceImplement implements IRespuestaService {
 
@@ -37,4 +38,15 @@ public class RespuestaServiceImplement implements IRespuestaService {
     public void delete(int id) {
         eR.deleteById(id);
     }
+
+    /* @Override
+    public List<String[]> listarRespuestasReclamos() {
+        return eR.listarRespuestasReclamos();
+    }*/
+
+    @Override
+    public List<String[]> obtenerResumenRespuestasPorReclamoYUsuario() {
+        return eR.obtenerResumenRespuestasPorReclamoYUsuario();
+    }
+
 }

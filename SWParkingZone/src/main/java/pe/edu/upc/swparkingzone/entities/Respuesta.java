@@ -3,27 +3,32 @@ package pe.edu.upc.swparkingzone.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
+
 @Entity
 @Table(name="Respuesta")
 public class Respuesta {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idRespuesta;
-    @Column(name="fecha",nullable=false)
-    private LocalDate fecha;
-    @Column(name="hora",nullable=false)
-    private LocalDate hora;
+    @Column(name="fechaRespuesta",nullable=false)
+    private LocalDate fechaRespuesta;
+    @Column(name="horaRespuesta",nullable=false)
+    private LocalTime horaRespuesta;
+
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "idReclamo")
     private Reclamo reclamo;
+
     public Respuesta() {
 
     }
 
-    public Respuesta(int idRespuesta, LocalDate fecha, LocalDate hora, Reclamo reclamo) {
+    public Respuesta(int idRespuesta, LocalDate fechaRespuesta, LocalTime horaRespuesta, Reclamo reclamo) {
         this.idRespuesta = idRespuesta;
-        this.fecha = fecha;
-        this.hora = hora;
+        this.fechaRespuesta = fechaRespuesta;
+        this.horaRespuesta = horaRespuesta;
         this.reclamo = reclamo;
     }
 
@@ -35,20 +40,20 @@ public class Respuesta {
         this.idRespuesta = idRespuesta;
     }
 
-    public LocalDate getFecha() {
-        return fecha;
+    public LocalDate getFechaRespuesta() {
+        return fechaRespuesta;
     }
 
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
+    public void setFechaRespuesta(LocalDate fechaRespuesta) {
+        this.fechaRespuesta = fechaRespuesta;
     }
 
-    public LocalDate getHora() {
-        return hora;
+    public LocalTime getHoraRespuesta() {
+        return horaRespuesta;
     }
 
-    public void setHora(LocalDate hora) {
-        this.hora = hora;
+    public void setHoraRespuesta(LocalTime horaRespuesta) {
+        this.horaRespuesta = horaRespuesta;
     }
 
     public Reclamo getReclamo() {
