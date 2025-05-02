@@ -3,7 +3,7 @@ package pe.edu.upc.swparkingzone.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-import pe.edu.upc.swparkingzn.entities.Respuesta;
+import pe.edu.upc.swparkingzone.entities.Respuesta;
 
 import java.util.List;
 

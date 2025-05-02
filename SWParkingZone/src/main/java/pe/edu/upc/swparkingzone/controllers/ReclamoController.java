@@ -6,10 +6,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.swparkingzn.dtos.ReclamoDTO;
-import pe.edu.upc.swparkingzn.dtos.ReporteReclamosDTO;
-import pe.edu.upc.swparkingzn.entities.Reclamo;
-import pe.edu.upc.swparkingzn.servicesinterfaces.IReclamoService;
+import pe.edu.upc.swparkingzone.dtos.ReclamoDTO;
+import pe.edu.upc.swparkingzone.dtos.ReporteReclamosDTO;
+import pe.edu.upc.swparkingzone.entities.Reclamo;
+import pe.edu.upc.swparkingzone.servicesinterfaces.IReclamoService;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

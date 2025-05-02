@@ -1,6 +1,6 @@
 package pe.edu.upc.swparkingzone.servicesinterfaces;
 
-import pe.edu.upc.swparkingzn.entities.Reclamo;
+import pe.edu.upc.swparkingzone.entities.Reclamo;
 
 import java.util.List;
 

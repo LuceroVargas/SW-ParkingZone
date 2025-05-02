@@ -2,9 +2,9 @@ package pe.edu.upc.swparkingzone.servicesimplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pe.edu.upc.swparkingzn.entities.Reclamo;
-import pe.edu.upc.swparkingzn.repositories.IReclamoRepository;
-import pe.edu.upc.swparkingzn.servicesinterfaces.IReclamoService;
+import pe.edu.upc.swparkingzone.entities.Reclamo;
+import pe.edu.upc.swparkingzone.repositories.IReclamoRepository;
+import pe.edu.upc.swparkingzone.servicesinterfaces.IReclamoService;
 
 import java.util.List;
 

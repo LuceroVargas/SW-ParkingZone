@@ -1,7 +1,7 @@
 package pe.edu.upc.swparkingzone.dtos;
 
-import pe.edu.upc.swparkingzn.entities.Reserva;
-import pe.edu.upc.swparkingzn.entities.Usuario;
+import pe.edu.upc.swparkingzone.entities.Reserva;
+import pe.edu.upc.swparkingzone.entities.Usuario;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
