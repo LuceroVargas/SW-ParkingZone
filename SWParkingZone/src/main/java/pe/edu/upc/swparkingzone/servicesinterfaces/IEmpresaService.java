@@ -10,4 +10,5 @@ public interface IEmpresaService {
     public Empresa listId(int id);
     public void update(Empresa e);
     public void delete(int id);
+    public List<String[]> empresaMasReservada();
 }

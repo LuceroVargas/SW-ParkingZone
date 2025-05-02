@@ -37,4 +37,9 @@ public class EmpresaServiceImplements implements IEmpresaService {
     public void delete(int id) {
         eR.deleteById(id);
     }
+
+    @Override
+    public List<String[]> empresaMasReservada() {
+        return eR.empresaMasReservada();
+    }
 }

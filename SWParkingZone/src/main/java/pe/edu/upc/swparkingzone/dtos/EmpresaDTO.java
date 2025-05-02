@@ -1,5 +1,6 @@
 package pe.edu.upc.swparkingzone.dtos;
 
+
 import pe.edu.upc.swparkingzone.entities.Usuario;
 
 public class EmpresaDTO {
@@ -12,7 +13,7 @@ public class EmpresaDTO {
 
     private String tipoEmpresa;
 
-    private Usuario usuario;
+    private Usuario us;
 
     public int getIdEmpresa() {
         return idEmpresa;
@@ -46,11 +47,11 @@ public class EmpresaDTO {
         this.tipoEmpresa = tipoEmpresa;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Usuario getUs() {
+        return us;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUs(Usuario us) {
+        this.us = us;
     }
 }
